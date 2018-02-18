@@ -11,6 +11,8 @@
 		1F2BF20B698066E49ABC7480 /* Pods_messageAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2751AFA84BF7ED2B0C34A17 /* Pods_messageAppTests.framework */; };
 		60D74F12203845D300479B73 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D74F11203845D300479B73 /* ListViewController.swift */; };
 		60D74F14203845F100479B73 /* TalkRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D74F13203845F100479B73 /* TalkRoomViewController.swift */; };
+		60D74F212039301200479B73 /* yourTalk.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D74F1F2039301100479B73 /* yourTalk.png */; };
+		60D74F222039301200479B73 /* myTalk.png in Resources */ = {isa = PBXBuildFile; fileRef = 60D74F202039301200479B73 /* myTalk.png */; };
 		60EE61CD203642F5006560E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EE61CC203642F5006560E9 /* AppDelegate.swift */; };
 		60EE61CF203642F5006560E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EE61CE203642F5006560E9 /* ViewController.swift */; };
 		60EE61D2203642F5006560E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60EE61D0203642F5006560E9 /* Main.storyboard */; };
@@ -48,6 +50,8 @@
 		4C87CDFF9BC5C484CA9AF413 /* Pods-messageApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-messageApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-messageApp/Pods-messageApp.release.xcconfig"; sourceTree = "<group>"; };
 		60D74F11203845D300479B73 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		60D74F13203845F100479B73 /* TalkRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkRoomViewController.swift; sourceTree = "<group>"; };
+		60D74F1F2039301100479B73 /* yourTalk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = yourTalk.png; path = "../../messageApp images/messageApp images/yourTalk.png"; sourceTree = "<group>"; };
+		60D74F202039301200479B73 /* myTalk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = myTalk.png; path = "../../messageApp images/messageApp images/myTalk.png"; sourceTree = "<group>"; };
 		60EE61C9203642F5006560E9 /* messageApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = messageApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60EE61CC203642F5006560E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60EE61CE203642F5006560E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 				60EE61D5203642F5006560E9 /* LaunchScreen.storyboard */,
 				60EE61D8203642F5006560E9 /* Info.plist */,
 				60EE61FA203643E8006560E9 /* GoogleService-Info.plist */,
+				60D74F202039301200479B73 /* myTalk.png */,
+				60D74F1F2039301100479B73 /* yourTalk.png */,
 			);
 			path = messageApp;
 			sourceTree = "<group>";
@@ -301,7 +307,9 @@
 				60EE61D7203642F5006560E9 /* LaunchScreen.storyboard in Resources */,
 				60EE61FB203643E8006560E9 /* GoogleService-Info.plist in Resources */,
 				60EE61D4203642F5006560E9 /* Assets.xcassets in Resources */,
+				60D74F222039301200479B73 /* myTalk.png in Resources */,
 				60EE61D2203642F5006560E9 /* Main.storyboard in Resources */,
+				60D74F212039301200479B73 /* yourTalk.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
