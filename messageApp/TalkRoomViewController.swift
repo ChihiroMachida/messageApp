@@ -16,17 +16,22 @@ class TalkRoomViewController: UIViewController {
     private var myTalkImageView: UIImageView! //自分のフキダシのImageView
     private var myTalkLabel: UILabel!         //自分のフキダシのLabel
     
+    @IBOutlet var sendButton: UIButton!       //送信button
     @IBOutlet var textField: UITextField!     //コメントを入力するTextField
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        //sendButtonを無効化
+//        sendButton.isEnabled = false
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func pushSend() { //送信button
+    @IBAction func pushSendButton() { //送信button
         
     //フキダシについて
         // myTalkImageViewを作成
@@ -46,7 +51,7 @@ class TalkRoomViewController: UIViewController {
         
     //フキダシに表示するmyTalkLabelについて
         //myTalkLabelを作成
-        myTalkLabel = UILabel(frame: CGRect(x: myX + 5, y: myY, width: 250, height: 30))
+        myTalkLabel = UILabel(frame: CGRect(x: myX + 5, y: myY, width: 245, height: 30))
         
         //myTalkLabelの表示位置を設定
         myTalkLabel.layer.position = CGPoint(x: myX + 5, y: myY)

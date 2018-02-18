@@ -11,6 +11,16 @@ import Firebase
 import FirebaseAuth
 import  SVProgressHUD
 
+//TextFieldを下線のみにするextension
+extension UITextField {
+    func addBorderBottom(height: CGFloat, color: UIColor) {
+        let border = CALayer()
+        border.frame = CGRect(x: 0, y: self.frame.height - height, width: self.frame.width, height: height)
+        border.backgroundColor = color.cgColor
+        self.layer.addSublayer(border)
+    }
+}
+
 class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     var DBRef: DatabaseReference!                 //インスタンス変数
@@ -26,6 +36,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         DBRef = Database.database().reference()
         
         passwordTextField.delegate = self
+        
+        //TextFieldの下線を追加
+        userNameTextField.placeholder = "name"
+        userNameTextField.addBorderBottom(height: 1.0, color: UIColor.lightGray)
+        
+        emailTextField.placeholder = "e-mail"
+        emailTextField.addBorderBottom(height: 1.0, color: UIColor.lightGray)
+        
+        passwordTextField.placeholder = "password"
+        passwordTextField.addBorderBottom(height: 1.0, color: UIColor.lightGray)
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,17 +60,17 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
            let password = passwordTextField.text {
             if userName.characters.isEmpty { //usernameが入力されてなかった時の処理
                 userNameTextField.layer.borderColor = UIColor.red.cgColor
-                SVProgressHUD.showError(withStatus: "No UserName")
+                SVProgressHUD.showError(withStatus: "入力してください")
                 return
             }
             if email.characters.isEmpty { //emailが入力されてなかった時の処理
                 emailTextField.layer.borderColor = UIColor.red.cgColor
-                SVProgressHUD.showError(withStatus: "No Email")
+                SVProgressHUD.showError(withStatus: "入力してください")
                 return
             }
             if password.characters.isEmpty { //passwordが入力されてなかった時の処理
                 passwordTextField.layer.borderColor = UIColor.red.cgColor
-                SVProgressHUD.showError(withStatus: "No Password")
+                SVProgressHUD.showError(withStatus: "入力してください")
                 return
             }
             userNameTextField.layer.borderColor = UIColor.black.cgColor
@@ -63,7 +83,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             Auth.auth().createUser(withEmail: email, password: password) { user, error in
                 if let error = error {
                     print(error)
-                    SVProgressHUD.showError(withStatus: "Error")
+                    SVProgressHUD.showError(withStatus: "エラー")
                     return
                 }
                 
@@ -75,10 +95,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                     changeRequest.commitChanges { error in
                         if let error = error {
                             print(error)
-                            SVProgressHUD.showError(withStatus: "Error")
+                            SVProgressHUD.showError(withStatus: "エラー")
                             return
                         }
-                        SVProgressHUD.showSuccess(withStatus: "Success")
+                        SVProgressHUD.showSuccess(withStatus: "登録完了！")
                         
                         let when = DispatchTime.now() + 2
                         DispatchQueue.main.asyncAfter(deadline: when) {

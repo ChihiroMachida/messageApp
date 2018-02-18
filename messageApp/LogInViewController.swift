@@ -11,6 +11,16 @@ import Firebase
 import FirebaseAuth
 import SVProgressHUD
 
+//TextFieldを下線のみにするextension
+extension UITextField {
+    func addBorderBottom2(height: CGFloat, color: UIColor) {
+        let border = CALayer()
+        border.frame = CGRect(x: 0, y: self.frame.height - height, width: self.frame.width, height: height)
+        border.backgroundColor = color.cgColor
+        self.layer.addSublayer(border)
+    }
+}
+
 class LogInViewController: UIViewController {
     
     @IBOutlet var emailTextField: UITextField!    //メールアドレスを入力するTextField
@@ -19,6 +29,12 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //TextFieldの下線を追加
+        emailTextField.placeholder = "e-mail"
+        emailTextField.addBorderBottom(height: 1.0, color: UIColor.lightGray)
+        
+        passwordTextField.placeholder = "password"
+        passwordTextField.addBorderBottom(height: 1.0, color: UIColor.lightGray)
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,12 +47,12 @@ class LogInViewController: UIViewController {
             let password = passwordTextField.text {
             if email.characters.isEmpty { //メールアドレスが入力されてなかった時の処理
                 emailTextField.layer.borderColor = UIColor.red.cgColor
-                SVProgressHUD.showError(withStatus: "No Email")
+                SVProgressHUD.showError(withStatus: "入力してください")
                 return
             }
             if password.characters.isEmpty { //パスワードが入力されてなかった時の処理
                 passwordTextField.layer.borderColor = UIColor.red.cgColor
-                SVProgressHUD.showError(withStatus: "No Password")
+                SVProgressHUD.showError(withStatus: "入力してください")
                 return
             }
             emailTextField.layer.borderColor = UIColor.black.cgColor
@@ -48,10 +64,10 @@ class LogInViewController: UIViewController {
             Auth.auth().signIn(withEmail: email, password: password) { user, error in
                 if let errpr = error {
                     print(error)
-                    SVProgressHUD.showSuccess(withStatus: "Success")
+                    SVProgressHUD.showSuccess(withStatus: "ログイン完了！")
                     return
                 } else {
-                    SVProgressHUD.showSuccess(withStatus: "Success")
+                    SVProgressHUD.showSuccess(withStatus: "ログイン完了！")
                     let when = DispatchTime.now() + 2
                     DispatchQueue.main.asyncAfter(deadline: when) {self.present((self.storyboard?.instantiateViewController(withIdentifier: "listViewController"))!,
                                         animated: true,
