@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class TalkRoomViewController: UIViewController {
+    
+    var DBRef: DatabaseReference!             //インスタンス変数
     
     var myX: Int = 250                        //自分のフキダシのX座標
     var myY: Int = 50                         //自分のフキダシのY座標

@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
-import  SVProgressHUD
+import SVProgressHUD
 
 //TextFieldを下線のみにするextension
 extension UITextField {
@@ -111,8 +111,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                     print("error - user not found")
                 }
                 SVProgressHUD.dismiss()
+                self.DBRef.child("chatID").childByAutoId().setValue(["name" : userName])
+                
             }
-            DBRef.child("chatID")
         }
     }
     
