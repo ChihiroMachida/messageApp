@@ -21,13 +21,16 @@ extension UITextField {
     }
 }
 
-class LogInViewController: UIViewController {
+class LogInViewController: UIViewController, UITextFieldDelegate{
     
     @IBOutlet var emailTextField: UITextField!    //メールアドレスを入力するTextField
     @IBOutlet var passwordTextField: UITextField! //パスワードを入力するTextField
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //デリゲートを指定
+        passwordTextField.delegate = self
         
         //TextFieldの下線を追加
         emailTextField.placeholder = "e-mail"
@@ -40,6 +43,13 @@ class LogInViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
+    }
+    
+    //Returnキーが押されたら呼び出されるメソッド
+    func textFieldShouldReturn(_ textField:UITextField) -> Bool {
+        //キーボードをしまう
+        textField.resignFirstResponder()
+        return false
     }
     
     @IBAction func pushLogIn() {
@@ -69,7 +79,7 @@ class LogInViewController: UIViewController {
                 } else {
                     SVProgressHUD.showSuccess(withStatus: "ログイン完了！")
                     let when = DispatchTime.now() + 2
-                    DispatchQueue.main.asyncAfter(deadline: when) {self.present((self.storyboard?.instantiateViewController(withIdentifier: "listViewController"))!,
+                    DispatchQueue.main.asyncAfter(deadline: when) {self.present((self.storyboard?.instantiateViewController(withIdentifier: "navigationController"))!,
                                         animated: true,
                                         completion: nil)
                     }

@@ -23,9 +23,10 @@ extension UITextField {
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
     
-    var DBRef: DatabaseReference!                 //インスタンス変数
+    var DBRef: DatabaseReference!                 //Firebaseを使用
     
     @IBOutlet var userNameTextField: UITextField! //ユーザー名を入力するTextField
+    @IBOutlet var userIDTextField: UITextField!   //ユーザーIDを入力するTextField
     @IBOutlet var emailTextField: UITextField!    //メールアドレスを入力するTextField
     @IBOutlet var passwordTextField: UITextField! //パスワードを入力するTextField
 
@@ -37,20 +38,33 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         passwordTextField.delegate = self
         
+        //デリゲートを指定
+        passwordTextField.delegate = self
+        
         //TextFieldの下線を追加
-        userNameTextField.placeholder = "name"
+        userNameTextField.placeholder = "ユーザー名"
         userNameTextField.addBorderBottom(height: 1.0, color: UIColor.lightGray)
         
-        emailTextField.placeholder = "e-mail"
+        userIDTextField.placeholder = "ユーザーID"
+        userIDTextField.addBorderBottom(height: 1.0, color: UIColor.lightGray)
+        
+        emailTextField.placeholder = "メールアドレス"
         emailTextField.addBorderBottom(height: 1.0, color: UIColor.lightGray)
         
-        passwordTextField.placeholder = "password"
+        passwordTextField.placeholder = "パスワード"
         passwordTextField.addBorderBottom(height: 1.0, color: UIColor.lightGray)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //Returnキーが押されたら呼び出されるメソッド
+    func textFieldShouldReturn(_ textField:UITextField) -> Bool {
+        //キーボードをしまう
+        textField.resignFirstResponder()
+        return false
     }
     
     @IBAction func pushSignUp() { //SingUpボタン
@@ -102,7 +116,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                         
                         let when = DispatchTime.now() + 2
                         DispatchQueue.main.asyncAfter(deadline: when) {
-                            self.present((self.storyboard?.instantiateViewController(withIdentifier: "listViewController"))!,
+                            self.present((self.storyboard?.instantiateViewController(withIdentifier: "navigationController"))!,
                                          animated: true,
                                          completion: nil)
                         }
@@ -111,7 +125,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                     print("error - user not found")
                 }
                 SVProgressHUD.dismiss()
-                self.DBRef.child("chatID").childByAutoId().setValue(["name" : userName])
+                self.DBRef.child("userInformation").childByAutoId().setValue(["userID": self.userIDTextField.text])
                 
             }
         }

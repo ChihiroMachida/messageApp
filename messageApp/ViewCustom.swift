@@ -1,17 +1,15 @@
 //
-//  Button_Custom.swift
-//  NewProject
+//  ViewCustom.swift
+//  messageApp
 //
-//  Created by 町田千優 on 2018/01/20.
+//  Created by 町田千優 on 2018/03/08.
 //  Copyright © 2018年 町田千優. All rights reserved.
 //
 
 import UIKit
 
 @IBDesignable
-class ButtonCustom: UIButton {
-    
-    @IBInspectable var textColor: UIColor?
+class ViewCustom: UIView {
     
     @IBInspectable var cornerRadius: CGFloat = 0 {
         didSet {
@@ -31,3 +29,5 @@ class ButtonCustom: UIButton {
         }
     }
 }
+
+

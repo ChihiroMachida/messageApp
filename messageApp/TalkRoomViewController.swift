@@ -35,7 +35,7 @@ class TalkRoomViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func pushSendButton() { //送信button
+    @IBAction func pushSend() { //送信button
         
     //フキダシについて
         // myTalkImageViewを作成
