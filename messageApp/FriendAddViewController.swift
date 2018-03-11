@@ -11,15 +11,15 @@ import Firebase
 
 class FriendAddViewController: UIViewController {
     
-    var DBRef: DatabaseReference!                 //Firebaseを使用
+    var ref: DatabaseReference!                 //Firebaseを使用
     
-    @IBOutlet var friendIDTextFIeld: UITextField! //友だちのユーザーIDを入力するTextField
+    @IBOutlet var friendChatIDTextField: UITextField! //友だちのチャットIDを入力するTextField
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //インスタンス生成
-        DBRef = Database.database().reference()
+        ref = Database.database().reference()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,7 +29,7 @@ class FriendAddViewController: UIViewController {
     
     @IBAction func pushAdd() { //追加button
         
-        
+        var friendChatID = friendChatIDTextField.text
     }
     
     @IBAction func pushClose() { //キャンセルbutton

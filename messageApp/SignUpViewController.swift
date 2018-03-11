@@ -23,10 +23,10 @@ extension UITextField {
 
 class SignUpViewController: UIViewController, UITextFieldDelegate {
     
-    var DBRef: DatabaseReference!                 //Firebaseを使用
+    var ref: DatabaseReference!                   //Firebaseを使用
     
     @IBOutlet var userNameTextField: UITextField! //ユーザー名を入力するTextField
-    @IBOutlet var userIDTextField: UITextField!   //ユーザーIDを入力するTextField
+    @IBOutlet var chatIDTextField: UITextField!   //チャットIDを入力するTextField
     @IBOutlet var emailTextField: UITextField!    //メールアドレスを入力するTextField
     @IBOutlet var passwordTextField: UITextField! //パスワードを入力するTextField
 
@@ -34,7 +34,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         //インスタンス生成
-        DBRef = Database.database().reference()
+        ref = Database.database().reference()
         
         passwordTextField.delegate = self
         
@@ -45,8 +45,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         userNameTextField.placeholder = "ユーザー名"
         userNameTextField.addBorderBottom(height: 1.0, color: UIColor.lightGray)
         
-        userIDTextField.placeholder = "ユーザーID"
-        userIDTextField.addBorderBottom(height: 1.0, color: UIColor.lightGray)
+        chatIDTextField.placeholder = "チャットID"
+        chatIDTextField.addBorderBottom(height: 1.0, color: UIColor.lightGray)
         
         emailTextField.placeholder = "メールアドレス"
         emailTextField.addBorderBottom(height: 1.0, color: UIColor.lightGray)
@@ -67,9 +67,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
-    @IBAction func pushSignUp() { //SingUpボタン
+    @IBAction func pushSignUp() { //新規登録button
         
         if let userName = userNameTextField.text,
+           let chatID = chatIDTextField.text,
            let email = emailTextField.text,
            let password = passwordTextField.text {
             if userName.characters.isEmpty { //usernameが入力されてなかった時の処理
@@ -125,7 +126,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                     print("error - user not found")
                 }
                 SVProgressHUD.dismiss()
-                self.DBRef.child("userInformation").childByAutoId().setValue(["userID": self.userIDTextField.text])
+                self.ref.child("UserList").child((user?.uid)!).setValue(["userName": userName, "chatID": chatID])
                 
             }
         }

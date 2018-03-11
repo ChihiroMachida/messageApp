@@ -178,9 +178,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="QCJ-dP-76g"/>
                     <connections>
+                        <outlet property="chatIDTextField" destination="4y1-yT-DDc" id="Of7-Yd-6BW"/>
                         <outlet property="emailTextField" destination="4mc-K0-aVP" id="Cfp-0n-6p5"/>
                         <outlet property="passwordTextField" destination="aBM-OS-9cc" id="vJx-ec-h5P"/>
-                        <outlet property="userIDTextField" destination="4y1-yT-DDc" id="4kU-j0-URw"/>
                         <outlet property="userNameTextField" destination="BKA-Hl-Gfv" id="136-lF-hHI"/>
                     </connections>
                 </viewController>
@@ -297,7 +297,7 @@
                         <viewLayoutGuide key="safeArea" id="qlm-Ck-Zeq"/>
                     </view>
                     <connections>
-                        <outlet property="friendIDTextFIeld" destination="zfG-E0-e7V" id="ABt-La-uDj"/>
+                        <outlet property="friendChatIDTextField" destination="zfG-E0-e7V" id="P2J-ws-dsz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Whe-bH-tUe" userLabel="First Responder" sceneMemberID="firstResponder"/>

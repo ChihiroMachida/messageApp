@@ -52,7 +52,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate{
         return false
     }
     
-    @IBAction func pushLogIn() {
+    @IBAction func pushLogIn() { //ログインbutton
         if let email = emailTextField.text,
             let password = passwordTextField.text {
             if email.characters.isEmpty { //メールアドレスが入力されてなかった時の処理
