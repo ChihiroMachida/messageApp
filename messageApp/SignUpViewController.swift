@@ -126,7 +126,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                     print("error - user not found")
                 }
                 SVProgressHUD.dismiss()
-                self.ref.child("UserList").child((user?.uid)!).setValue(["userName": userName, "chatID": chatID])
+                self.ref?.child("UserList").childByAutoId().setValue(["userName": userName, "chatID": chatID])
                 
             }
         }

@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class FriendAddViewController: UIViewController {
+class FriendAddViewController: UIViewController, UITextFieldDelegate {
     
     var ref: DatabaseReference!                 //Firebaseを使用
     
@@ -20,6 +20,9 @@ class FriendAddViewController: UIViewController {
         
         //インスタンス生成
         ref = Database.database().reference()
+        
+        //デリゲートを指定
+        friendChatIDTextField.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,9 +30,15 @@ class FriendAddViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //Returnキーが押されたら呼び出されるメソッド
+    func textFieldShouldReturn(_ textField:UITextField) -> Bool {
+        //キーボードをしまう
+        textField.resignFirstResponder()
+        return false
+    }
+    
     @IBAction func pushAdd() { //追加button
         
-        var friendChatID = friendChatIDTextField.text
     }
     
     @IBAction func pushClose() { //キャンセルbutton
