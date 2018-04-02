@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zbA-7B-k2S">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -201,14 +201,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ahq-Ar-DYe">
-                                <rect key="frame" x="176" y="264" width="62" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="友達追加"/>
-                                <connections>
-                                    <segue destination="hIJ-xF-b8z" kind="presentation" modalTransitionStyle="crossDissolve" id="Nx7-KV-8xV"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVz-jL-H3O">
                                 <rect key="frame" x="161" y="443" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -221,11 +213,17 @@
                         <color key="backgroundColor" red="1" green="0.96062618489999996" blue="0.88711041209999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="ink-dZ-I1R"/>
                     </view>
-                    <navigationItem key="navigationItem" title="ホーム" id="mba-ak-kUZ"/>
+                    <navigationItem key="navigationItem" title="ホーム" id="d0G-R8-RM8">
+                        <barButtonItem key="rightBarButtonItem" title="+" style="done" id="7DI-NP-g3O">
+                            <connections>
+                                <segue destination="hIJ-xF-b8z" kind="presentation" modalTransitionStyle="crossDissolve" id="gKZ-cr-yTD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V2f-wp-zhe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1862" y="53"/>
+            <point key="canvasLocation" x="1860.8695652173915" y="52.989130434782609"/>
         </scene>
         <!--Friend Add View Controller-->
         <scene sceneID="FJ8-Qi-dvV">
@@ -378,14 +376,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="icK-cg-uca">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="icK-cg-uca">
                                 <rect key="frame" x="32" y="180" width="350" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Ad8-Zl-tK0"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SP6-KF-wB1">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SP6-KF-wB1">
                                 <rect key="frame" x="32" y="330" width="350" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="xxW-t4-N9y"/>
@@ -394,10 +394,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6H-zr-OqU" customClass="Button_Custom" customModule="messageApp" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6H-zr-OqU" customClass="Button_Custom" customModule="messageApp" customModuleProvider="target">
                                 <rect key="frame" x="32" y="515" width="350" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.95294117647058818" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="UPg-SZ-mf8"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <state key="normal" title="ログイン">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -413,6 +415,17 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.96062618489999996" blue="0.88711041209999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="SP6-KF-wB1" firstAttribute="trailing" secondItem="k6H-zr-OqU" secondAttribute="trailing" id="5oc-Dc-yS7"/>
+                            <constraint firstItem="icK-cg-uca" firstAttribute="top" secondItem="zii-yJ-0Dt" secondAttribute="top" constant="160" id="9lk-Bi-7fT"/>
+                            <constraint firstItem="SP6-KF-wB1" firstAttribute="leading" secondItem="zii-yJ-0Dt" secondAttribute="leading" constant="32" id="Au3-vf-ZhT"/>
+                            <constraint firstItem="SP6-KF-wB1" firstAttribute="leading" secondItem="k6H-zr-OqU" secondAttribute="leading" id="QU5-hf-zoo"/>
+                            <constraint firstItem="SP6-KF-wB1" firstAttribute="leading" secondItem="icK-cg-uca" secondAttribute="leading" id="UI8-eS-yS2"/>
+                            <constraint firstItem="SP6-KF-wB1" firstAttribute="top" secondItem="6c6-jt-0HH" secondAttribute="top" constant="330" id="XJK-n7-AAP"/>
+                            <constraint firstItem="zii-yJ-0Dt" firstAttribute="bottom" secondItem="k6H-zr-OqU" secondAttribute="bottom" constant="171" id="lwY-eU-3pQ"/>
+                            <constraint firstItem="SP6-KF-wB1" firstAttribute="centerX" secondItem="6c6-jt-0HH" secondAttribute="centerX" id="uiv-Hn-X4b"/>
+                            <constraint firstItem="SP6-KF-wB1" firstAttribute="trailing" secondItem="icK-cg-uca" secondAttribute="trailing" id="ynu-JM-keZ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zii-yJ-0Dt"/>
                     </view>
                     <navigationItem key="navigationItem" id="QFh-mK-dOB"/>
@@ -436,7 +449,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="yab-5k-Sik" kind="relationship" relationship="rootViewController" id="bOM-G0-7WJ"/>
+                        <segue destination="yab-5k-Sik" kind="show" id="ni2-DL-noH"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UH6-1g-RLd" userLabel="First Responder" sceneMemberID="firstResponder"/>

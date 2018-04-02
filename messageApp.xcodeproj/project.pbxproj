@@ -15,6 +15,7 @@
 		60A2A24D2051195200E87688 /* FriendAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A2A24C2051195200E87688 /* FriendAddViewController.swift */; };
 		60A2A24F2051231300E87688 /* ViewCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A2A24E2051231300E87688 /* ViewCustom.swift */; };
 		60B5B90E203978F000A97F1B /* ButtonCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B5B90D203978F000A97F1B /* ButtonCustom.swift */; };
+		60D666F72071C52300716D84 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D666F62071C52300716D84 /* User.swift */; };
 		60D74F12203845D300479B73 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D74F11203845D300479B73 /* ListViewController.swift */; };
 		60D74F14203845F100479B73 /* TalkRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D74F13203845F100479B73 /* TalkRoomViewController.swift */; };
 		60EE61CD203642F5006560E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EE61CC203642F5006560E9 /* AppDelegate.swift */; };
@@ -61,6 +62,7 @@
 		60A2A24C2051195200E87688 /* FriendAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendAddViewController.swift; sourceTree = "<group>"; };
 		60A2A24E2051231300E87688 /* ViewCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCustom.swift; sourceTree = "<group>"; };
 		60B5B90D203978F000A97F1B /* ButtonCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCustom.swift; sourceTree = "<group>"; };
+		60D666F62071C52300716D84 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		60D74F11203845D300479B73 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		60D74F13203845F100479B73 /* TalkRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkRoomViewController.swift; sourceTree = "<group>"; };
 		60EE61C9203642F5006560E9 /* messageApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = messageApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +171,7 @@
 				60EE62002037FDAD006560E9 /* LogInViewController.swift */,
 				60D74F11203845D300479B73 /* ListViewController.swift */,
 				60A2A24C2051195200E87688 /* FriendAddViewController.swift */,
+				60D666F62071C52300716D84 /* User.swift */,
 				60D74F13203845F100479B73 /* TalkRoomViewController.swift */,
 				60B5B90D203978F000A97F1B /* ButtonCustom.swift */,
 				60A2A24E2051231300E87688 /* ViewCustom.swift */,
@@ -538,6 +541,7 @@
 				60D74F14203845F100479B73 /* TalkRoomViewController.swift in Sources */,
 				60EE61CF203642F5006560E9 /* ViewController.swift in Sources */,
 				60EE61CD203642F5006560E9 /* AppDelegate.swift in Sources */,
+				60D666F72071C52300716D84 /* User.swift in Sources */,
 				60B5B90E203978F000A97F1B /* ButtonCustom.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

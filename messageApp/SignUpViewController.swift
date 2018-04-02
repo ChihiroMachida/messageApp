@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import FirebaseAuth
 import SVProgressHUD
 
 //TextFieldを下線のみにするextension
@@ -36,9 +35,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         //インスタンス生成
         ref = Database.database().reference()
         
-        passwordTextField.delegate = self
-        
         //デリゲートを指定
+        emailTextField.delegate = self
         passwordTextField.delegate = self
         
         //TextFieldの下線を追加
@@ -57,16 +55,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-    //Returnキーが押されたら呼び出されるメソッド
-    func textFieldShouldReturn(_ textField:UITextField) -> Bool {
-        //キーボードをしまう
-        textField.resignFirstResponder()
-        return false
-    }
-    
     @IBAction func pushSignUp() { //新規登録button
         
         if let userName = userNameTextField.text,
@@ -126,18 +115,20 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                     print("error - user not found")
                 }
                 SVProgressHUD.dismiss()
-                self.ref?.child("UserList").childByAutoId().setValue(["userName": userName, "chatID": chatID])
-                
+                //uidを生成
+                self.ref?.child("UserList").child((user?.uid)!).setValue(["userName": userName, "chatID": chatID])
             }
+        }
+        
+        //Returnキーが押されたら呼び出されるメソッド
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            //キーボードをしまう
+            textField.resignFirstResponder()
+            return false
         }
     }
     
-    func textFieldShouldReturn(passwordTextField: UITextField) -> Bool {
-        passwordTextField.resignFirstResponder()
-        return true
-    }
     
-
     /*
     // MARK: - Navigation
 

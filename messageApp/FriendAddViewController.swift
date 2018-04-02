@@ -11,7 +11,9 @@ import Firebase
 
 class FriendAddViewController: UIViewController, UITextFieldDelegate {
     
-    var ref: DatabaseReference!                 //Firebaseを使用
+    var ref: DatabaseReference!               //Firebaseを使用
+    var currentUser = Auth.auth().currentUser //ログインしているユーザー
+    var indexFAVc: Int = 0
     
     @IBOutlet var friendChatIDTextField: UITextField! //友だちのチャットIDを入力するTextField
 
@@ -27,23 +29,55 @@ class FriendAddViewController: UIViewController, UITextFieldDelegate {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    //Returnキーが押されたら呼び出されるメソッド
-    func textFieldShouldReturn(_ textField:UITextField) -> Bool {
-        //キーボードをしまう
-        textField.resignFirstResponder()
-        return false
     }
     
     @IBAction func pushAdd() { //追加button
         
+        //FirebaseからUserListを持ってくる
+        ref.child("UserList").observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            var currentChatID = "" //ログインしているユーザーのchatID
+            var otherChatID = ""   //追加する相手のchatID
+            
+            guard let list = snapshot.children.allObjects as? [DataSnapshot]  else {
+                print("no list")
+                return
+            }
+            
+            //入力したIDがDatabaseにあるか調べる
+            for item in list {
+                guard let value = item.value as? NSDictionary else { return }
+                print(item.key)
+                let searchUser = User(uid: item.key,
+                                 chatID: value["chatID"]! as! String,
+                                 userName: value["userName"]! as! String)
+                print(searchUser.chatID)
+                
+                //自分のchatID
+                if self.currentUser!.uid == searchUser.uid {
+                    currentChatID = searchUser.chatID
+                }
+                
+                // 他の人のID
+                if self.friendChatIDTextField.text == searchUser.chatID {
+                   otherChatID = searchUser.chatID
+                }
+                print(currentChatID, otherChatID)
+            }
+            
+            //roomIDを生成
+            self.ref?.child("RoomList").childByAutoId().setValue(["chatID1": currentChatID, "chatID2": otherChatID])
+        })
     }
     
     @IBAction func pushClose() { //キャンセルbutton
-        
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func textFieldShouldReturn(_ textField:UITextField) -> Bool { //Returnキー
+        //キーボードをしまう
+        textField.resignFirstResponder()
+        return false
     }
 
     /*

@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import FirebaseAuth
 import SVProgressHUD
 
 //TextFieldを下線のみにするextension
@@ -45,13 +44,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate{
         
     }
     
-    //Returnキーが押されたら呼び出されるメソッド
-    func textFieldShouldReturn(_ textField:UITextField) -> Bool {
-        //キーボードをしまう
-        textField.resignFirstResponder()
-        return false
-    }
-    
     @IBAction func pushLogIn() { //ログインbutton
         if let email = emailTextField.text,
             let password = passwordTextField.text {
@@ -86,9 +78,16 @@ class LogInViewController: UIViewController, UITextFieldDelegate{
                     
                 }
             
+            }
         }
     }
-}
+    
+    //Returnキーが押されたら呼び出されるメソッド
+    func textFieldShouldReturn(_ textField:UITextField) -> Bool {
+        //キーボードをしまう
+        textField.resignFirstResponder()
+        return false
+    }
     
 
     /*
