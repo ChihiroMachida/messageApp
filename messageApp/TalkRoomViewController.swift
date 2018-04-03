@@ -10,14 +10,21 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
+extension UIColor {
+    class func rgb(r: Int, g: Int, b: Int, alpha: CGFloat) -> UIColor{
+        return UIColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: alpha)
+    }
+}
+
+
 class TalkRoomViewController: UIViewController {
     
     var DBRef: DatabaseReference!             //インスタンス変数
     
-    var myX: Int = 250                        //自分のフキダシのX座標
+    var myX: Int = 240                        //自分のフキダシのX座標
     var myY: Int = 50                         //自分のフキダシのY座標
     @IBOutlet var scrollView: UIScrollView!   //フキダシを表示するScrollView
-    private var myTalkImageView: UIImageView! //自分のフキダシのImageView
+    private var myTalkView: UIView!           //自分のフキダシのView
     private var myTalkLabel: UILabel!         //自分のフキダシのLabel
     
     @IBOutlet var sendButton: UIButton!       //送信button
@@ -26,7 +33,7 @@ class TalkRoomViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        //sendButtonを無効化
+//        sendButtonを無効化
 //        sendButton.isEnabled = false
         
     }
@@ -39,19 +46,15 @@ class TalkRoomViewController: UIViewController {
         
     //フキダシについて
         // myTalkImageViewを作成
-        myTalkImageView = UIImageView(frame: CGRect(x: myX, y: myY, width: 250, height: 30))
+        myTalkView = ViewCustom(frame: CGRect(x: myX, y: myY, width: 250, height: 30))
         
-        // 表示する画像を設定
-        let myTalkImage = UIImage(named: "myTalk.png")
-        
-        //画像をmyTalkImageに設定
-        myTalkImageView.image = myTalkImage
-        
-        //myTalkImageViewの表示位置を設定
-        myTalkImageView.layer.position =  CGPoint(x: myX, y: myY)
-        
+        //色・角丸・位置
+        self.myTalkView.backgroundColor = UIColor.white
+        self.myTalkView.layer.cornerRadius = 15
+        myTalkView.layer.position = CGPoint(x: myX, y: myY)
+
         //myTalkImageViewをViewに追加
-        self.scrollView.addSubview(myTalkImageView)
+        self.scrollView.addSubview(myTalkView)
         
     //フキダシに表示するmyTalkLabelについて
         //myTalkLabelを作成

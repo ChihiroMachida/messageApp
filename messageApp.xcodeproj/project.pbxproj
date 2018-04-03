@@ -16,6 +16,8 @@
 		60A2A24F2051231300E87688 /* ViewCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A2A24E2051231300E87688 /* ViewCustom.swift */; };
 		60B5B90E203978F000A97F1B /* ButtonCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B5B90D203978F000A97F1B /* ButtonCustom.swift */; };
 		60D666F72071C52300716D84 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D666F62071C52300716D84 /* User.swift */; };
+		60D666FA2072F09100716D84 /* Logo.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 60D666F92072F09100716D84 /* Logo.jpeg */; };
+		60D666FC20730D2100716D84 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D666FB20730D2100716D84 /* Room.swift */; };
 		60D74F12203845D300479B73 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D74F11203845D300479B73 /* ListViewController.swift */; };
 		60D74F14203845F100479B73 /* TalkRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60D74F13203845F100479B73 /* TalkRoomViewController.swift */; };
 		60EE61CD203642F5006560E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60EE61CC203642F5006560E9 /* AppDelegate.swift */; };
@@ -56,13 +58,12 @@
 		60A2A2422050060B00E87688 /* yourTalk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yourTalk.png; sourceTree = "<group>"; };
 		60A2A2432050060B00E87688 /* Logo.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Logo.jpeg; sourceTree = "<group>"; };
 		60A2A2442050060B00E87688 /* myTalk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myTalk.png; sourceTree = "<group>"; };
-		60A2A2492050061800E87688 /* yourTalk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yourTalk.png; sourceTree = "<group>"; };
-		60A2A24A2050061800E87688 /* Logo.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Logo.jpeg; sourceTree = "<group>"; };
-		60A2A24B2050061800E87688 /* myTalk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myTalk.png; sourceTree = "<group>"; };
 		60A2A24C2051195200E87688 /* FriendAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendAddViewController.swift; sourceTree = "<group>"; };
 		60A2A24E2051231300E87688 /* ViewCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCustom.swift; sourceTree = "<group>"; };
 		60B5B90D203978F000A97F1B /* ButtonCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCustom.swift; sourceTree = "<group>"; };
 		60D666F62071C52300716D84 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		60D666F92072F09100716D84 /* Logo.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Logo.jpeg; sourceTree = "<group>"; };
+		60D666FB20730D2100716D84 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		60D74F11203845D300479B73 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		60D74F13203845F100479B73 /* TalkRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkRoomViewController.swift; sourceTree = "<group>"; };
 		60EE61C9203642F5006560E9 /* messageApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = messageApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,14 +130,13 @@
 			path = ../messageAppImages;
 			sourceTree = "<group>";
 		};
-		60A2A2482050061800E87688 /* messageAppImages */ = {
+		60D666F82072F09100716D84 /* messageAppImage */ = {
 			isa = PBXGroup;
 			children = (
-				60A2A2492050061800E87688 /* yourTalk.png */,
-				60A2A24A2050061800E87688 /* Logo.jpeg */,
-				60A2A24B2050061800E87688 /* myTalk.png */,
+				60D666F92072F09100716D84 /* Logo.jpeg */,
 			);
-			path = messageAppImages;
+			name = messageAppImage;
+			path = ../../messageAppImage;
 			sourceTree = "<group>";
 		};
 		60EE61C0203642F5006560E9 = {
@@ -172,15 +172,16 @@
 				60D74F11203845D300479B73 /* ListViewController.swift */,
 				60A2A24C2051195200E87688 /* FriendAddViewController.swift */,
 				60D666F62071C52300716D84 /* User.swift */,
+				60D666FB20730D2100716D84 /* Room.swift */,
 				60D74F13203845F100479B73 /* TalkRoomViewController.swift */,
 				60B5B90D203978F000A97F1B /* ButtonCustom.swift */,
 				60A2A24E2051231300E87688 /* ViewCustom.swift */,
+				60EE61D5203642F5006560E9 /* LaunchScreen.storyboard */,
 				60EE61D0203642F5006560E9 /* Main.storyboard */,
 				60EE61D3203642F5006560E9 /* Assets.xcassets */,
-				60EE61D5203642F5006560E9 /* LaunchScreen.storyboard */,
 				60EE61D8203642F5006560E9 /* Info.plist */,
 				60EE61FA203643E8006560E9 /* GoogleService-Info.plist */,
-				60A2A2482050061800E87688 /* messageAppImages */,
+				60D666F82072F09100716D84 /* messageAppImage */,
 			);
 			path = messageApp;
 			sourceTree = "<group>";
@@ -349,6 +350,7 @@
 				60A2A2472050060B00E87688 /* myTalk.png in Resources */,
 				60EE61D2203642F5006560E9 /* Main.storyboard in Resources */,
 				60A2A2452050060B00E87688 /* yourTalk.png in Resources */,
+				60D666FA2072F09100716D84 /* Logo.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,6 +545,7 @@
 				60EE61CD203642F5006560E9 /* AppDelegate.swift in Sources */,
 				60D666F72071C52300716D84 /* User.swift in Sources */,
 				60B5B90E203978F000A97F1B /* ButtonCustom.swift in Sources */,
+				60D666FC20730D2100716D84 /* Room.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

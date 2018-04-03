@@ -9,11 +9,15 @@
 import UIKit
 import Firebase
 
+protocol MoveDelegate { //プロトコル
+    func didInput()
+}
+
 class FriendAddViewController: UIViewController, UITextFieldDelegate {
     
     var ref: DatabaseReference!               //Firebaseを使用
+    var delegate: MoveDelegate?               //デリゲート
     var currentUser = Auth.auth().currentUser //ログインしているユーザー
-    var indexFAVc: Int = 0
     
     @IBOutlet var friendChatIDTextField: UITextField! //友だちのチャットIDを入力するTextField
 
@@ -35,9 +39,10 @@ class FriendAddViewController: UIViewController, UITextFieldDelegate {
         
         //FirebaseからUserListを持ってくる
         ref.child("UserList").observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            var currentChatID = "" //ログインしているユーザーのchatID
-            var otherChatID = ""   //追加する相手のchatID
+            var currentChatID = ""                              //ログインしているユーザーのchatID
+            var otherChatID = ""                                //追加する相手のchatID
+            var currentUserName = self.currentUser?.displayName //ログインしているユーザーのuserName
+            var otherUserName = ""                              //追加する相手のuserName
             
             guard let list = snapshot.children.allObjects as? [DataSnapshot]  else {
                 print("no list")
@@ -53,27 +58,30 @@ class FriendAddViewController: UIViewController, UITextFieldDelegate {
                                  userName: value["userName"]! as! String)
                 print(searchUser.chatID)
                 
-                //自分のchatID
+                //自分のchatIDを取得
                 if self.currentUser!.uid == searchUser.uid {
                     currentChatID = searchUser.chatID
                 }
                 
-                // 他の人のID
+                // 他の人のIDを取得
                 if self.friendChatIDTextField.text == searchUser.chatID {
-                   otherChatID = searchUser.chatID
+                    otherChatID = searchUser.chatID
+                    otherUserName = searchUser.userName
                 }
                 print(currentChatID, otherChatID)
             }
             
             //roomIDを生成
-            self.ref?.child("RoomList").childByAutoId().setValue(["chatID1": currentChatID, "chatID2": otherChatID])
+            self.ref?.child("RoomList").childByAutoId().setValue(["chatID1": currentChatID, "chatID2": otherChatID, "userName1": currentUserName, "userName2": otherUserName])
+            
+            self.delegate?.didInput()
+            self.dismiss(animated: true, completion: nil)
         })
     }
     
     @IBAction func pushClose() { //キャンセルbutton
         self.dismiss(animated: true, completion: nil)
     }
-    
     func textFieldShouldReturn(_ textField:UITextField) -> Bool { //Returnキー
         //キーボードをしまう
         textField.resignFirstResponder()
