@@ -10,9 +10,9 @@ import UIKit
 
 class User { //ユーザーのクラス
     
-    var uid = ""         //ユーザーID
-    var chatID = ""      //チャットID
-    var userName: String! //ユーザー名
+    var uid = ""      //ユーザーID
+    var chatID = ""   //チャットID
+    var userName = "" //ユーザー名
     
     //初期化
     init(uid: String, chatID: String, userName: String) {

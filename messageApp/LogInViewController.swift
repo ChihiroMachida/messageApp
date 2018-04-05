@@ -20,7 +20,7 @@ extension UITextField {
     }
 }
 
-class LogInViewController: UIViewController, UITextFieldDelegate{
+class LogInViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var emailTextField: UITextField!    //メールアドレスを入力するTextField
     @IBOutlet var passwordTextField: UITextField! //パスワードを入力するTextField
@@ -29,6 +29,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate{
         super.viewDidLoad()
         
         //デリゲートを指定
+        emailTextField.delegate = self
         passwordTextField.delegate = self
         
         //TextFieldの下線を追加
@@ -38,10 +39,13 @@ class LogInViewController: UIViewController, UITextFieldDelegate{
         passwordTextField.placeholder = "password"
         passwordTextField.addBorderBottom(height: 1.0, color: UIColor.lightGray)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+//        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
     }
     
     @IBAction func pushLogIn() { //ログインbutton
@@ -75,9 +79,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate{
                                         animated: true,
                                         completion: nil)
                     }
-                    
                 }
-            
             }
         }
     }

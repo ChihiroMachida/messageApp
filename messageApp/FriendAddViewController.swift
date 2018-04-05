@@ -68,11 +68,12 @@ class FriendAddViewController: UIViewController, UITextFieldDelegate {
                     otherChatID = searchUser.chatID
                     otherUserName = searchUser.userName
                 }
-                print(currentChatID, otherChatID)
             }
             
             //roomIDを生成
             self.ref?.child("RoomList").childByAutoId().setValue(["chatID1": currentChatID, "chatID2": otherChatID, "userName1": currentUserName, "userName2": otherUserName])
+            print(currentChatID)
+            print(otherChatID)
             
             self.delegate?.didInput()
             self.dismiss(animated: true, completion: nil)
@@ -82,6 +83,7 @@ class FriendAddViewController: UIViewController, UITextFieldDelegate {
     @IBAction func pushClose() { //キャンセルbutton
         self.dismiss(animated: true, completion: nil)
     }
+    
     func textFieldShouldReturn(_ textField:UITextField) -> Bool { //Returnキー
         //キーボードをしまう
         textField.resignFirstResponder()

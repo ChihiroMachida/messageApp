@@ -32,10 +32,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //インスタンス生成
-        ref = Database.database().reference()
-        
         //デリゲートを指定
+        userNameTextField.delegate = self
+        chatIDTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
         
@@ -51,11 +50,19 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         passwordTextField.placeholder = "パスワード"
         passwordTextField.addBorderBottom(height: 1.0, color: UIColor.lightGray)
+        
+        //インスタンス生成
+        ref = Database.database().reference()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+//        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
     @IBAction func pushSignUp() { //新規登録button
         
         if let userName = userNameTextField.text,
@@ -119,15 +126,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 self.ref?.child("UserList").child((user?.uid)!).setValue(["userName": userName, "chatID": chatID])
             }
         }
-        
-        //Returnキーが押されたら呼び出されるメソッド
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            //キーボードをしまう
-            textField.resignFirstResponder()
-            return false
-        }
     }
     
+    func textFieldShouldReturn(_ textField:UITextField) -> Bool { //Returnキー
+        //キーボードをしまう
+        textField.resignFirstResponder()
+        return false
+    }
     
     /*
     // MARK: - Navigation
